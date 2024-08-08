@@ -10,7 +10,7 @@ class Builder(Enum):
     PRS = "prs"
     ANY = "any"
 
-class TypeG(Enum):
+class Type(Enum):
     ACOUSTIC = "acoustic"
     ELECTRIC = "electric"
 
@@ -24,3 +24,17 @@ class Wood(Enum):
     ADIRONDACK = "adirondack"
     ALDER = "alder"
     SITKA = "sitka"
+
+class Style(Enum):
+    A = "a"
+    F = "f"
+
+class InstrumentType(Enum):
+    GUITAR = "Guitar"
+    BANJO = "Banjo"
+    DOBRO = "Dobro"
+    FIDDLE = "Fiddle"
+    BASS = "Bass"
+    MANDOLIN = "Mandolin"
+    SAX = "Sax"
+    UNSPECIFIED = "Unspecified"

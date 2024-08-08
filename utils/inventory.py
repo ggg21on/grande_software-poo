@@ -1,25 +1,26 @@
-from utils.guitar import Guitar
+from utils.instrument import Instrument
+from utils.instrument_spec import InstrumentSpec
 
 class Inventory:
     def __init__(self):
-        self.guitars = []
+        self.stock = []
 
-    def add_guitar(self, serial_number, price, guitar_spec) -> None:
-        guitar = Guitar(serial_number, price, guitar_spec)
-        self.guitars.append(guitar)
+    def save(self, serial_number: str, price: float, spec: InstrumentSpec) -> None:
+        instrument = Instrument(serial_number, price, spec)
+        self.stock.append(instrument)
 
-    def get_guitar(self, serial_number) -> Guitar | None:
-        for guitar in self.guitars:
-            if guitar.get_serial_number() == serial_number:
-                return guitar
+    def get(self, serial_number: str) -> Instrument | None:
+        for instrument in self.stock:
+            if instrument.get_serial_number() == serial_number:
+                return instrument
 
         return None
 
-    def search(self, search_guitar) -> Guitar | None:
-        matching_guitars = []
+    def search(self, search_spec: InstrumentSpec) -> list[Instrument] | None:
+        results = []
 
-        for guitar in self.guitars:
-            if guitar.get_spec.matches(search_guitar):
-                matching_guitars.append(guitar)
+        for instrument in self.stock:
+            if instrument.get_spec.matches(search_spec):
+                results.append(instrument)
 
-        return matching_guitars or None
+        return results or None

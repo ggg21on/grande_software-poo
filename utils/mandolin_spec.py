@@ -1,7 +1,7 @@
-from utils.enums import Builder, TypeG, Wood
+from utils.enums import Builder, Style, TypeG, Wood
 from utils.instrument_spec import InstrumentSpec
 
-class GuitarSpec(InstrumentSpec):
+class MandolinSpec(InstrumentSpec):
     def __init__(
         self,
         builder: Builder,
@@ -9,16 +9,16 @@ class GuitarSpec(InstrumentSpec):
         typeg: TypeG,
         back_wood: Wood,
         top_wood: Wood,
-        num_strings,
+        style: Style,
     ):
         super().__init__(builder, model, typeg, back_wood, top_wood)
-        self.num_strings = num_strings
+        self.style = style
 
-    def get_num_strings(self) -> str:
-        return self.num_strings
+    def get_style(self) -> Style:
+        return self.style
 
     def matches(self, other_spec) -> bool:
-        if not isinstance(other_spec, GuitarSpec):
+        if not isinstance(other_spec, MandolinSpec):
             return False
 
         if self.builder != other_spec.get_builder():
@@ -31,7 +31,7 @@ class GuitarSpec(InstrumentSpec):
             return False
         if self.top_wood != other_spec.get_top_wood():
             return False
-        if self.num_strings != other_spec.get_num_strings():
+        if self.style != other_spec.get_style():
             return False
 
         return True

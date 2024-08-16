@@ -1,6 +1,7 @@
 from utils.instrument import Instrument
 from utils.instrument_spec import InstrumentSpec
 
+
 class Inventory:
     def __init__(self):
         self.stock = []

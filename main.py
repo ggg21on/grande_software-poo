@@ -7,6 +7,7 @@ from utils.inventory import Inventory
 
 DIVIDER = f"{'-' * 32}"
 
+
 def show_instruments(matching_instruments: list[Instrument] | None) -> None:
     if matching_instruments is None:
         print("...\nDesculpe, não temos nada para você\n```")
@@ -88,6 +89,8 @@ def main() -> None:
     inventory = Inventory()
     initialize_inventory(inventory)
 
+    ...  # Buscar instrumentos
+
     properties = {
         "builder": Builder.GIBSON,
         "type": Type.ACOUSTIC,
@@ -97,6 +100,8 @@ def main() -> None:
     matching_instruments = inventory.search(client_spec)
 
     show_instruments(matching_instruments)
+
+    ...  # NÃO buscar instrumentos
 
     properties = {
         "builder": Builder.RYAN,
@@ -110,6 +115,8 @@ def main() -> None:
 
     show_instruments(matching_instruments)
 
+    ...  # Buscar instrumentos
+
     properties = {
         "builder": Builder.MARTIN,
         "type": Type.ELECTRIC,
@@ -121,6 +128,8 @@ def main() -> None:
 
     show_instruments(matching_instruments)
 
+    ...  # Buscar instrumentos
+
     properties = {
         "type": Type.ELECTRIC,
         "top_wood": Wood.ALDER,
@@ -131,6 +140,8 @@ def main() -> None:
 
     show_instruments(matching_instruments)
 
+    ...  # NÃO buscar instrumentos
+
     properties = {
         "builder": Builder.OLSON,
         "back_wood": Wood.ADIRONDACK,
@@ -140,6 +151,7 @@ def main() -> None:
     matching_instruments = inventory.search(client_spec)
 
     show_instruments(matching_instruments)
+
 
 if __name__ == "__main__":
     main()
